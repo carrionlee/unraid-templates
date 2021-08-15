@@ -1,64 +1,64 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>webdav-aliyundriver</Name>
-  <Repository>zx5253/webdav-aliyundriver</Repository>
-  <Registry>https://hub.docker.com/r/bytemark/webdav/</Registry>
+  <Name>CloudDrive</Name>
+  <Repository>cloudnas/clouddrive</Repository>
+  <Registry>https://hub.docker.com/r/cloudnas/clouddrive</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/bytemark/webdav/</Support>
-  <Project>https://github.com/zxbu/webdav-aliyundriver</Project>
-  <Overview>&#x672C;&#x9879;&#x76EE;&#x5B9E;&#x73B0;&#x4E86;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x7684;webdav&#x534F;&#x8BAE;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8BA9;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x53D8;&#x8EAB;&#x4E3A;webdav&#x534F;&#x8BAE;&#x7684;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x3002; &#x57FA;&#x4E8E;&#x6B64;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x6302;&#x8F7D;&#x4E3A;Windows&#x3001;Linux&#x3001;Mac&#x7CFB;&#x7EDF;&#x7684;&#x78C1;&#x76D8;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;NAS&#x7CFB;&#x7EDF;&#x505A;&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x6216;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#xFF0C;&#x66F4;&#x591A;&#x73A9;&#x6CD5;&#x7B49;&#x4F60;&#x6316;&#x6398;</Overview>
+  <Support/>
+  <Project>https://hub.docker.com/r/cloudnas/clouddrive</Project>
+  <Overview> Clouddrive mounts cloud storage services as local file system. </Overview>
   <Category>Cloud:</Category>
-  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <WebUI>http://[IP]:[PORT:9798]</WebUI>
   <TemplateURL/>
-  <Icon>https://i.loli.net/2021/08/15/B7OS3bDdf9Hgpmh.jpg</Icon>
-  <ExtraParams/>
+  <Icon>https://i.loli.net/2021/08/15/86P9H2bO7ZdWerN.jpg</Icon>
+  <ExtraParams>--cap-add SYS_ADMIN --security-opt apparmor:unconfine</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1629016247</DateInstalled>
+  <DateInstalled>1629016816</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>&#x672C;&#x9879;&#x76EE;&#x5B9E;&#x73B0;&#x4E86;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x7684;webdav&#x534F;&#x8BAE;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8BA9;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x53D8;&#x8EAB;&#x4E3A;webdav&#x534F;&#x8BAE;&#x7684;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x3002; &#x57FA;&#x4E8E;&#x6B64;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x963F;&#x91CC;&#x4E91;&#x76D8;&#x6302;&#x8F7D;&#x4E3A;Windows&#x3001;Linux&#x3001;Mac&#x7CFB;&#x7EDF;&#x7684;&#x78C1;&#x76D8;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;NAS&#x7CFB;&#x7EDF;&#x505A;&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x6216;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#xFF0C;&#x66F4;&#x591A;&#x73A9;&#x6CD5;&#x7B49;&#x4F60;&#x6316;&#x6398;</Description>
+  <Description> Clouddrive mounts cloud storage services as local file system. </Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>8080</HostPort>
-        <ContainerPort>8080</ContainerPort>
+        <HostPort>9798</HostPort>
+        <ContainerPort>9798</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/webdav-aliyundriver</HostDir>
-      <ContainerDir>/etc/aliyun-driver/</ContainerDir>
+      <HostDir/>
+      <ContainerDir>/Config</ContainerDir>
       <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/CloudNAS</ContainerDir>
+      <Mode>rw,shared</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/media</ContainerDir>
+      <Mode>rw,shared</Mode>
     </Volume>
   </Data>
   <Environment>
     <Variable>
-      <Value/>
-      <Name>ALIYUNDRIVE_REFRESH_TOKEN</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>ALIYUNDRIVE_AUTH_PASSWORD</Name>
-      <Mode/>
-    </Variable>
-    <Variable>
-      <Value>-Xmx1g</Value>
-      <Name>JAVA_OPTS</Name>
+      <Value>/dev/fuse</Value>
+      <Name>/dev/fuse</Name>
       <Mode/>
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="ALIYUNDRIVE_REFRESH_TOKEN" Target="ALIYUNDRIVE_REFRESH_TOKEN" Default="" Mode="" Description="Container Variable: ALIYUNDRIVE_REFRESH_TOKEN" Type="Variable" Display="always" Required="false" Mask="false"/>
-  <Config Name="ALIYUNDRIVE_AUTH_PASSWORD" Target="ALIYUNDRIVE_AUTH_PASSWORD" Default="" Mode="" Description="Container Variable: ALIYUNDRIVE_AUTH_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false"/>
-  <Config Name="JAVA_OPTS" Target="JAVA_OPTS" Default="-Xmx1g" Mode="" Description="Container Variable: JAVA_OPTS" Type="Variable" Display="always" Required="false" Mask="false">-Xmx1g</Config>
-  <Config Name="webdav port" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
-  <Config Name="Config" Target="/etc/aliyun-driver/" Default="" Mode="rw" Description="Container Path: /etc/aliyun-driver/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/webdav-aliyundriver</Config>
+  <Config Name="Config Path" Target="/Config" Default="" Mode="rw" Description="&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x4E5F;&#x4F4D;&#x4E8E;&#x6B64;" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Mount Path" Target="/CloudNAS" Default="" Mode="rw,shared" Description="&#x6302;&#x8F7D;&#x76EE;&#x5F55;" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="WEBUI PORT" Target="9798" Default="9798" Mode="tcp" Description="Container Port: 9798" Type="Port" Display="always" Required="true" Mask="false">9798</Config>
+  <Config Name="Host Key 1" Target="/dev/fuse" Default="" Mode="" Description="Container Variable: /dev/fuse" Type="Variable" Display="always" Required="true" Mask="false">/dev/fuse</Config>
+  <Config Name="Media Path" Target="/media" Default="" Mode="rw,shared" Description="&#x672C;&#x5730;&#x6302;&#x8F7D;&#x76EE;&#x5F55;&#xFF0C;&#x53EF;&#x9009;" Type="Path" Display="always-hide" Required="false" Mask="false"/>
 </Container>
