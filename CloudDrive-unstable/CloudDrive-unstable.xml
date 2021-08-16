@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>CloudDrive-unstable</Name>
+  <Repository>cloudnas/clouddrive-unstable</Repository>
+  <Registry>https://hub.docker.com/r/cloudnas/clouddrive-unstable</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://hub.docker.com/r/cloudnas/clouddrive-unstable</Project>
+  <Overview> Clouddrive mounts cloud storage services as local file system. </Overview>
+  <Category>Cloud:</Category>
+  <WebUI>http://[IP]:[PORT:9798]</WebUI>
+  <TemplateURL/>
+  <Icon>https://i.loli.net/2021/08/15/86P9H2bO7ZdWerN.jpg</Icon>
+  <ExtraParams>--cap-add SYS_ADMIN --security-opt apparmor:unconfine</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1629076412</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description> Clouddrive mounts cloud storage services as local file system. </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9798</HostPort>
+        <ContainerPort>9798</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/Config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/CloudNAS</ContainerDir>
+      <Mode>rw,shared</Mode>
+    </Volume>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/media</ContainerDir>
+      <Mode>rw,shared</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>/dev/fuse</Value>
+      <Name>/dev/fuse</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Config Path" Target="/Config" Default="" Mode="rw" Description="/Config  &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x4E5F;&#x4F4D;&#x4E8E;&#x6B64;" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="Mount Path" Target="/CloudNAS" Default="" Mode="rw,shared" Description="/CloudNAS  &#x6302;&#x8F7D;&#x76EE;&#x5F55;" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="WEBUI PORT" Target="9798" Default="" Mode="tcp" Description="Container Port: 9798" Type="Port" Display="always" Required="true" Mask="false">9798</Config>
+  <Config Name="Device" Target="/dev/fuse" Default="" Mode="" Description="Container Variable: /dev/fuse" Type="Variable" Display="always" Required="true" Mask="false">/dev/fuse</Config>
+  <Config Name="Media Path" Target="/media" Default="" Mode="rw,shared" Description="/media &#x672C;&#x5730;&#x5185;&#x5BB9;&#x6302;&#x8F7D;&#x76EE;&#x5F55;&#xFF0C;&#x53EF;&#x9009;" Type="Path" Display="always-hide" Required="false" Mask="false"/>
+</Container>
